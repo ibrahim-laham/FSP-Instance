@@ -12,24 +12,27 @@ import path from "path";
 import { Request, Response } from "express";
 
 const app = Express();
-const _dirname = path.dirname("")
-const buildpath = path.join(_dirname, "../client/build")
+const _dirname = path.dirname("");
+const buildpath = path.join(_dirname, "../client/build");
 
-app.use(Express.static(buildpath))
+app.use(Express.static(buildpath));
 
-app.get("/", function(req: Request, res: Response)
-  {res.sendFile(
-    path.join(_dirname, "../client/build/index.html"),
-    function (error) {
-      if (error) {
-        res.status(500).send(error);
+app.get("/*", function(req, res){
+
+  res.sendFile(
+      path.join(__dirname, "../client/build/index.html"),
+      function (err) {
+        if (err) {
+          res.status(500).send(err);
+        }
       }
-    }
-  )}
-)
+    );
+
+})
+
 
 app.use(Express.json());
-app.use(cors());
+// app.use(cors());
 app.use(passport.initialize());
 passport.use(jwtStrategy);
 
