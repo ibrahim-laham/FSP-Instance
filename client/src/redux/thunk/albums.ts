@@ -3,7 +3,7 @@ import { AppDispatch } from "../store";
 import { albumsActions } from "../slices/albums";
 
 export function getAlbumsData() {
-  const url = "https://full-stack-project-backend-e3xz.onrender.com/products";
+  const url = "http://localhost:8000/products";
   return async (dispatch: AppDispatch) => {
     try {
       await axios
@@ -20,7 +20,7 @@ export function getAlbumsData() {
 }
 
 export function getAlbumDetails(productId: string) {
-  const url = `https://full-stack-project-backend-e3xz.onrender.com/products/${productId}`;
+  const url = `http://localhost:8000/products/${productId}`;
   return async (dispatch: AppDispatch) => {
     try {
       await axios

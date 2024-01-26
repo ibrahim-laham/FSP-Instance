@@ -17,7 +17,11 @@ const buildpath = path.join(_dirname, "../client/build");
 
 app.use(Express.static(buildpath));
 
-app.get("/*", function(req, res){
+app.use(Express.json());
+app.use(cors());
+app.use(passport.initialize());
+passport.use(jwtStrategy);
+app.get("/", function(req:Request, res:Response){
 
   res.sendFile(
       path.join(__dirname, "../client/build/index.html"),
@@ -29,17 +33,12 @@ app.get("/*", function(req, res){
     );
 
 })
-
-
-app.use(Express.json());
-// app.use(cors());
-app.use(passport.initialize());
-passport.use(jwtStrategy);
-
 app.use("/products", productsRouter);
 app.use("/users", usersRouter);
 app.use("/orders", ordersRouter);
 
 app.use(apiErrorHandler);
+
+
 
 export default app;

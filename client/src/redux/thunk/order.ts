@@ -5,7 +5,7 @@ import { ordersActions } from "../slices/orders";
 import { Album, Order } from "../../types/type";
 
 export function createOrder(userId: string, cartList: Album[]) {
-  const url = `https://full-stack-project-backend-e3xz.onrender.com/orders/${userId}`;
+  const url = `http://localhost:8000/orders/${userId}`;
   const token = localStorage.getItem("Access_token");
   return async (dispatch: AppDispatch) => {
     await axios
@@ -21,7 +21,7 @@ export function createOrder(userId: string, cartList: Album[]) {
 }
 
 export function getUserOrders(userId: string) {
-  const url = `https://full-stack-project-backend-e3xz.onrender.com/orders/${userId}`;
+  const url = `http://localhost:8000/orders/${userId}`;
 
   return async (dispatch: AppDispatch) => {
     const token = localStorage.getItem("Access_token");

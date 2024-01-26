@@ -47,7 +47,6 @@ export default function AlbumsPage() {
       </Grid>
     );
   }
-  console.log(skeletonArray);
   console.log(loading, "load");
 
   if (!loading) {

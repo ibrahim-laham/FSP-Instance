@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 import app from "./app";
+import path from "path";
+import Express from "express";
+import { Request, Response } from "express";
 
 dotenv.config();
 
@@ -13,6 +16,7 @@ const options = {
   useUnifiedTopology: true,
   dbName: "Ecommerce"
 }
+
 
 mongoose
   .connect(process.env.MONGODB_URI as string, options)
@@ -25,3 +29,4 @@ mongoose
     console.log("MongoDB connection error. make sure the database is running");
     process.exit(1);
   });
+
