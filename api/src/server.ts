@@ -27,14 +27,14 @@ app.use(passport.initialize());
 passport.use(jwtStrategy);
 app.get("/", function(req:Request, res:Response){
 
- res.sendFile(
+ res? res.sendFile(
       path.join(__dirname, "../client/build/index.html"),
       function (err) {
         if (err) {
           res.status(500).send(err);
         }
       }
-    );
+    ):null;
 
 })
 app.use("/products", productsRouter);

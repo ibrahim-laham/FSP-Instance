@@ -49,7 +49,7 @@ export default function ChangeUserInfo() {
   };
 
   const submitChangeHandler = async () => {
-    const endpoint = `https://full-stack-project-backend-e3xz.onrender.com/users/${userData._id}`;
+    const endpoint = `16.16.117.147/users/${userData._id}`;
     const token = localStorage.getItem("Access_token");
     let check = true;
     Object.values(userInput).map((input) =>
